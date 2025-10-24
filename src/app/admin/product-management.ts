@@ -17,7 +17,7 @@ export interface Product {
   productName: string;
   description: string;
   forSale: number;
-  forSaleDisplay?: string; // For display purposes
+  forSaleDisplay?: string; 
 }
 
 @Component({
@@ -51,10 +51,8 @@ export class ProductManagement implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Optionally load all products on init
   }
 
-  // Convert forSale number (0/1) to display string
   private convertForSaleToDisplay(product: Product): Product {
     return {
       ...product,
@@ -65,7 +63,6 @@ export class ProductManagement implements OnInit {
   loadAllProducts(): void {
     this.http.get<Product[]>('http://localhost:13031/api/v1/getproducts').subscribe({
       next: (data) => {
-        // Convert forSale to display string for each product
         this.dataSource.data = (Array.isArray(data) ? data : [data]).map(product => 
           this.convertForSaleToDisplay(product)
         );
@@ -123,7 +120,6 @@ export class ProductManagement implements OnInit {
       return;
     }
 
-    // Ensure forSale is a number (0 or 1)
     const payload: Product = {
       ...this.selectedRow,
       forSale: this.selectedRow.forSaleDisplay === 'For Sale' ? 1 : 0
