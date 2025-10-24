@@ -1,1 +1,36 @@
-<p>add-product-dialog works!</p>
+<h2 mat-dialog-title>Add New Product</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>ID</mat-label>
+    <input matInput [(ngModel)]="newProduct.id" />
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Product ID</mat-label>
+    <input matInput [(ngModel)]="newProduct.productId" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Product Name</mat-label>
+    <input matInput [(ngModel)]="newProduct.productName" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="newProduct.description" rows="3"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select [(ngModel)]="newProduct.forSaleDisplay">
+      <mat-option value="For Sale">For Sale</mat-option>
+      <mat-option value="Not For Sale">Not For Sale</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</div>
+

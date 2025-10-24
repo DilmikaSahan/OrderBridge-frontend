@@ -1,1 +1,28 @@
-<p>add-order-dialog works!</p>
+<h2 mat-dialog-title>Add New Order</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>ID</mat-label>
+    <input matInput [(ngModel)]="newOrder.id" />
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Item ID</mat-label>
+    <input matInput [(ngModel)]="newOrder.itemId" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Order Date</mat-label>
+    <input matInput type="date" [(ngModel)]="newOrder.orderDate" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" [(ngModel)]="newOrder.amount" />
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</div>
+

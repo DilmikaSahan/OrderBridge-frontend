@@ -1,0 +1,144 @@
+.order{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: auto;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.searchBar {
+    width: 300px;
+    margin-right: 10px;
+    
+    .mat-mdc-form-field {
+        transition: all 0.3s ease;
+    }
+}
+
+.searchButton {
+    padding: 10px 24px;
+    background: rgb(238, 238, 238);
+    color: white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    height: 38px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    
+    &:hover {
+        background: rgb(200, 200, 200);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+.OPSButton{
+    padding: 10px 100px;
+    background: rgb(238, 238, 238);
+    color: white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    
+    &:hover {
+        background: rgb(200, 200, 200);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+.demo-table {
+    width: 100%;
+    
+    th {
+        background-color: #f5f5f5;
+        font-weight: 600;
+        padding: 12px;
+    }
+    
+    td {
+        padding: 12px;
+    }
+    
+    tr.demo-row-is-clicked {
+        background-color: #e3f2fd;
+    }
+    
+    mat-row {
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        
+        &:hover {
+            background-color: #f5f5f5;
+        }
+    }
+}
+
+.info-panel {
+    padding: 40px;
+    width: 400px;
+    background-color: #f5f5f5;
+    margin-right: 10px;
+    margin-top: 2px;
+    
+    h3 {
+        margin-top: 0;
+        font-size: 20px;
+        color: #333;
+    }
+    
+    p {
+        font-size: 16px;
+        color: #666;
+    }
+}
+
+mat-grid-list {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+mat-grid-tile {
+    overflow: auto;
+}
+.orderContent{
+    display: flex;
+}
+.orderTable,.infoContent{
+    flex: 1;
+    padding: 10px;
+}
+.infoContent{
+    max-width: 400px;
+}
+.deleteButton{
+    padding: 10px 24px;
+    background: rgb(238, 238, 238);
+    color: white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    height: 38px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    
+    &:hover {
+        background: rgb(228, 35, 35);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+.updateButton{
+    background: rgb(238, 238, 238);
+    color: white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    height: 38px;
+    margin-bottom: 10px;
+    
+    &:hover {
+        background: rgb(20, 178, 104);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}

@@ -1,1 +1,95 @@
-<p>order-management works!</p>
+<div class="order">
+<mat-form-field class="searchBar">
+  <mat-label>Search Order by Order ID</mat-label>
+  <input type="text" matInput [(ngModel)]="searchOrderId"/>
+</mat-form-field>
+
+<button class="searchButton" matButton="outlined" (click)="SearchOrders()">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg>
+</button>
+<button class="OPSButton" matButton="outlined" (click)="loadAllOrders()">View All Orders
+</button>
+<button class="OPSButton" matButton="outlined" (click)="openAddOrderDialog()">Add New Order
+</button>
+<div class="orderContent">
+<div class="orderTable">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>ID</th>
+                <td mat-cell *matCellDef="let element">{{element.id}}</td>
+            </ng-container>
+
+            <!-- Item ID Column -->
+            <ng-container matColumnDef="itemId">
+                <th mat-header-cell *matHeaderCellDef>Item ID</th>
+                <td mat-cell *matCellDef="let element">{{element.itemId}}</td>
+            </ng-container>
+
+            <!-- Order Date Column -->
+            <ng-container matColumnDef="orderDate">
+                <th mat-header-cell *matHeaderCellDef>Order Date</th>
+                <td mat-cell *matCellDef="let element">{{element.orderDate}}</td>
+            </ng-container>
+
+            <!-- Amount Column -->
+            <ng-container matColumnDef="amount">
+                <th mat-header-cell *matHeaderCellDef>Amount</th>
+                <td mat-cell *matCellDef="let element">{{element.amount}}</td>
+            </ng-container>
+
+            <!-- Header and Rows -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+                mat-row
+          (click)="onRowClick(row)"
+          [class.demo-row-is-clicked]="selectedRow === row"
+          *matRowDef="let row; columns: displayedColumns"
+            ></tr>
+        </table>
+    </div>
+
+    <div class="infoContent">
+      <div class="info-panel">
+        <h3>Order Summary</h3>
+        <p>Total Orders: {{ dataSource.data.length }}</p>
+        <h3>Order Details</h3>
+
+        <div *ngIf="selectedRow; else noSelection" class="orderDetails">
+          <mat-form-field>
+            <mat-label>ID</mat-label>
+            <input matInput [(ngModel)]="selectedRow.id" >
+          </mat-form-field>  
+          <mat-form-field>
+            <mat-label>Item ID</mat-label>
+            <input matInput [(ngModel)]="selectedRow.itemId" >
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Order Date</mat-label>
+            <input matInput [(ngModel)]="selectedRow.orderDate" >
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Amount</mat-label>
+            <input matInput [(ngModel)]="selectedRow.amount" >
+          </mat-form-field>
+          <div><button class="updateButton" matButton="outlined" (click)="updateOrder()">Update
+        </button>
+        <button class="deleteButton" matButton="outlined" (click)="deleteOrder(selectedRow.id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+</svg>
+        </button>
+        </div>
+        </div>
+
+        <ng-template #noSelection>
+          <p>No order selected. Click on a row to view details.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
